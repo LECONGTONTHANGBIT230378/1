@@ -34,8 +34,8 @@ jobs:
 
       - name: Commit and Push changes
         run: |
-          git config --local user.email "you@example.com"
-          git config --local user.name "Your Name"
+          git config --local user.email "thangle20051111@gmail.com"
+          git config --local user.name "Thang112005"
           git add .
           git commit -m "Thêm workflow CI/CD GitHub Actions"
           git push origin main
