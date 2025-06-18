@@ -1,0 +1,45 @@
+name: CI for Classroom Management System
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: |
+          npm install --save-dev htmlhint stylelint eslint
+
+      - name: Lint HTML
+        run: npx htmlhint "**/*.html"
+
+      - name: Lint CSS
+        run: npx stylelint "**/*.css"
+
+      - name: Lint JS
+        run: npx eslint "**/*.js"
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "you@example.com"
+          git config --local user.name "Your Name"
+          git add .
+          git commit -m "Thêm workflow CI/CD GitHub Actions"
+          git push origin main
+
+{
+  "extends": "stylelint-config-standard"
+}
