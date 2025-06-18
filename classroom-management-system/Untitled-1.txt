@@ -39,3 +39,7 @@ jobs:
           git add .
           git commit -m "Thêm workflow CI/CD GitHub Actions"
           git push origin main
+
+{
+  "extends": "stylelint-config-standard"
+}
