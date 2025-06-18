@@ -1,66 +1,64 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 header {
-    background: #35424a;
-    color: #ffffff;
-    padding: 10px 0;
-    text-align: center;
+  background: #35424a;
+  color: #ffffff;
+  padding: 10px 0;
+  text-align: center;
 }
 
 h1 {
-    margin: 0;
+  margin: 0;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
 
 .table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
 }
 
 .table th,
 .table td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
 .table th {
-    background-color: #35424a;
-    color: white;
+  background-color: #35424a;
+  color: white;
 }
 
 .button {
-    background-color: #35424a;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
+  background-color: #35424a;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
 }
 
 .button:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
 .footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #35424a;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background: #35424a;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
-
-name: CI for Classroom Management System on : push : branches: [main] pull_request : branches: [main] jobs : lint : runs-on: ubuntu-latest steps : - name: Checkout code uses: actions/checkout@v4 - name: Set up Node.js uses: actions/setup-node@v4 with : node-version: '20' - name: Install HTMLHint run: npm install -g htmlhint - name: Install Stylelint run: npm install -g stylelint stylelint-config-standard - name: Install ESLint run: npm install -g eslint - name: Lint HTML run: htmlhint "**/*.html" - name: Lint CSS run: stylelint "**/*.css" --config '{"extends": "stylelint-config-standard"}' - name: Lint JS run: eslint "**/*.js" --no-error-on-unmatched-pattern
