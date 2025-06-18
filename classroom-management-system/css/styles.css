@@ -28,7 +28,8 @@ h1 {
     margin: 20px 0;
 }
 
-.table th, .table td {
+.table th,
+.table td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -61,3 +62,5 @@ h1 {
     bottom: 0;
     width: 100%;
 }
+
+name: CI for Classroom Management System on : push : branches: [main] pull_request : branches: [main] jobs : lint : runs-on: ubuntu-latest steps : - name: Checkout code uses: actions/checkout@v4 - name: Set up Node.js uses: actions/setup-node@v4 with : node-version: '20' - name: Install HTMLHint run: npm install -g htmlhint - name: Install Stylelint run: npm install -g stylelint stylelint-config-standard - name: Install ESLint run: npm install -g eslint - name: Lint HTML run: htmlhint "**/*.html" - name: Lint CSS run: stylelint "**/*.css" --config '{"extends": "stylelint-config-standard"}' - name: Lint JS run: eslint "**/*.js" --no-error-on-unmatched-pattern
